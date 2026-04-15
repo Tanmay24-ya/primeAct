@@ -61,13 +61,17 @@ erDiagram
 
 ## 📖 API Documentation
 
-### 🟢 Interactive Swagger Docs
-Test the API live in your browser without any external tools.
-👉 **[http://localhost:5000/api-docs](http://localhost:5000/api-docs)**
+### 🟢 Interactive Swagger Docs (Production)
+Test the live API directly on the production server.
+👉 **[https://primeact.onrender.com/api-docs](https://primeact.onrender.com/api-docs)**
 
 ### 🟠 Professional Postman Collection
 A fully documented and automated collection for deep-dive testing.
 👉 **[Public Postman Documentation](https://documenter.getpostman.com/view/53713765/2sBXqCQPwW)**
+
+### 🏠 Local Development
+- Swagger: `http://localhost:5000/api-docs`
+- Health Check: `http://localhost:5000/`
 
 ---
 
