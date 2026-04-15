@@ -1,0 +1,118 @@
+openapi: 3.0.0
+info:
+  title: PrimeTrade AI Backend API
+  description: 'Scalable REST API with Authentication & Role-Based Access for PrimeTrade.ai'
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000/api/v1
+    description: Local development server
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []
+paths:
+  /auth/register:
+    post:
+      summary: Register a new user
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '201':
+          description: User created
+  /auth/login:
+    post:
+      summary: Login user
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Successful login
+  /auth/me:
+    get:
+      summary: Get active user context
+      responses:
+        '200':
+          description: Active user retrievd
+  /trades/stats:
+    get:
+      summary: Get trade stats (Aggregate)
+      responses:
+        '200':
+          description: Trade statistics retrieved
+  /trades:
+    get:
+      summary: Get user trades
+      responses:
+        '200':
+          description: A list of trades
+    post:
+      summary: Create a new trade
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                symbol:
+                  type: string
+                quantity:
+                  type: number
+                price:
+                  type: number
+      responses:
+        '201':
+          description: Trade created
+  /trades/{id}:
+    put:
+      summary: Update a trade
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Trade updated
+    delete:
+      summary: Delete a trade
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Trade deleted

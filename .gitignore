@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+.next/
+dist/
+build/
+
+# IDEs
+.vscode/
+.idea/
+
+# Database
+*.db
+*-journal
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Docker logs
+logs
+*.log
+
+# Misc
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json (if you prefer, usually kept but some omit)
